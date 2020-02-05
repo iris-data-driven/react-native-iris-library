@@ -8,18 +8,18 @@
 
 import IrisSDK
 
-@objc
-class Iris: NSObject {
-  @objc
-   class func initNotifications(_ launchOptions: [AnyHashable: Any]) {
+@objc(RCTIris)
+class RCTIris: NSObject {
+  @objc(initNotifications:)
+   class func initNotifications(_ launchOptions: [AnyHashable: Any]?) {
       let notify = IrisNotify()
       notify.initWithCallbacks(launchOptions)
       IrisNotify.promptForPushNotifications { accepted in
         print("User accepted notifications: \(accepted)")
       }
   }
- @objc
-  class func geolocationService(_ launchOptions: [AnyHashable: Any]) {
+  @objc(geolocationService:)
+   class func geolocationService(_ launchOptions: [AnyHashable: Any]?) {
     let geofence = IrisGeotrigger(launchOptions)
     geofence.start()
   }

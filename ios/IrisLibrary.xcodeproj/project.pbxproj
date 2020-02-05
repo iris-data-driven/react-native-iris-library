@@ -3,15 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* IrisLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* IrisLibrary.m */; };
-		F5FA33F323E3584E009528AD /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FA33D423E35812009528AD /* libReact.a */; };
-		F5FA33FB23E36286009528AD /* IrisSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FA33F823E36285009528AD /* IrisSDK.framework */; };
-		F5FA33FC23E36286009528AD /* OneSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FA33F923E36286009528AD /* OneSignal.framework */; };
-		F5FA33FD23E36286009528AD /* PlotProjects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FA33FA23E36286009528AD /* PlotProjects.framework */; };
+		F5FA33F323E3584E009528AD /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FA33D423E35812009528AD /* libReact.a */; platformFilter = ios; };
 		F5FA341123E383B9009528AD /* IrisInits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FA341023E383B9009528AD /* IrisInits.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,9 +133,6 @@
 		B3E7B5891CC2AC0600A0062D /* IrisLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IrisLibrary.m; sourceTree = "<group>"; };
 		F5FA33C023E35810009528AD /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		F5FA33F523E35EF0009528AD /* IrisLibrary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IrisLibrary-Bridging-Header.h"; sourceTree = "<group>"; };
-		F5FA33F823E36285009528AD /* IrisSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IrisSDK.framework; path = "../../../mobile-ios-sdk/Carthage/Build/iOS/IrisSDK.framework"; sourceTree = "<group>"; };
-		F5FA33F923E36286009528AD /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = "../../../mobile-ios-sdk/Carthage/Build/iOS/OneSignal.framework"; sourceTree = "<group>"; };
-		F5FA33FA23E36286009528AD /* PlotProjects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PlotProjects.framework; path = "../../../mobile-ios-sdk/Carthage/Build/iOS/PlotProjects.framework"; sourceTree = "<group>"; };
 		F5FA341023E383B9009528AD /* IrisInits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisInits.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,9 +142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5FA33F323E3584E009528AD /* libReact.a in Frameworks */,
-				F5FA33FB23E36286009528AD /* IrisSDK.framework in Frameworks */,
-				F5FA33FC23E36286009528AD /* OneSignal.framework in Frameworks */,
-				F5FA33FD23E36286009528AD /* PlotProjects.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,9 +171,6 @@
 		F5FA33BF23E35810009528AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F5FA33F823E36285009528AD /* IrisSDK.framework */,
-				F5FA33F923E36286009528AD /* OneSignal.framework */,
-				F5FA33FA23E36286009528AD /* PlotProjects.framework */,
 				F5FA33C023E35810009528AD /* React.xcodeproj */,
 			);
 			name = Frameworks;
@@ -220,7 +208,6 @@
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
-				F5FA33FE23E36E75009528AD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -385,29 +372,6 @@
 		};
 /* End PBXReferenceProxy section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		F5FA33FE23E36E75009528AD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"/Users/thiago.brandt/Documents/mobile-ios-sdk/Carthage/Build/iOS/OneSignal.framework",
-				"/Users/thiago.brandt/Documents/mobile-ios-sdk/Carthage/Build/iOS/IrisSDK.framework",
-				"/Users/thiago.brandt/Documents/mobile-ios-sdk/Carthage/Build/iOS/PlotProjects.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -520,7 +484,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherit)",
-					"/Users/thiago.brandt/Documents/mobile-ios-sdk/Carthage/Build/iOS/",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,7 +492,11 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = IrisLibrary;
@@ -545,7 +513,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherit)",
-					"/Users/thiago.brandt/Documents/mobile-ios-sdk/Carthage/Build/iOS/",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -553,7 +521,11 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = IrisLibrary;
