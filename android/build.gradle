@@ -21,6 +21,8 @@ def safeExtGet(prop, fallback) {
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 buildscript {
     // The Android Gradle plugin is only required when opening the android folder stand-alone.
@@ -34,12 +36,12 @@ buildscript {
         }
         dependencies {
             classpath 'com.android.tools.build:gradle:3.4.1'
+            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"
         }
     }
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'maven'
 
 android {
@@ -72,7 +74,7 @@ repositories {
         url "$rootDir/../node_modules/jsc-android/dist"
     }
     maven {
-        url
+        url 'https://maven-repo.plotprojects.com/'
     }
     google()
     jcenter()
@@ -103,7 +105,7 @@ dependencies {
     kapt "android.arch.persistence.room:compiler:2.2.3"
 
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-    implementation 'com.somosiris.mobile_android_sdk:sdk_iris:1.0.1'
+    implementation project(':sdk_iris_1.0.1')
 }
 
 def configureReactNativePom(def pom) {

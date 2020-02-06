@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android.iml" filepath="$PROJECT_DIR$/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sdk_iris_1.0.1/sdk_iris_1.0.1.iml" filepath="$PROJECT_DIR$/sdk_iris_1.0.1/sdk_iris_1.0.1.iml" />
     </modules>
   </component>
 </project>

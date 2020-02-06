@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.plotprojects:plot-android:3.10.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f1f3d71b0a08f4ef9dab63cb8da89276/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f1f3d71b0a08f4ef9dab63cb8da89276/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
