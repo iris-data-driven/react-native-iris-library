@@ -1,5 +1,9 @@
 package com.reactlibrary;
 
+
+import android.app.Activity;
+import android.content.Context;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -17,6 +21,21 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
     @Override
     public String getName() {
         return "IrisLibrary";
+    }
+
+    @ReactMethod
+    public void initNotifications() {
+        SDKIris.init(context: Context)
+    }
+
+    @ReactMethod
+    public void initGeolocation() {
+        SDKIris.startGeofenceService(this: Activity)
+    }
+
+    @ReactMethod
+    public void sendTag(key: String, value: String){
+        SDKIris.sendTag(value: value, tag: key)
     }
 
     @ReactMethod
