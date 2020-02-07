@@ -24,6 +24,11 @@ class RCTIris: NSObject {
     geofence.start()
   }
   
+  @objc(sendTag::)
+  class func sendTag(key: String, value: String) {
+    IrisNotify.sendTag(key, value: value)
+  }
+  
   
 }
   
