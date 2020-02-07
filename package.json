@@ -2,22 +2,26 @@
   "name": "react-native-iris-library",
   "title": "React Native Iris Library",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "React Native module for SDK Iris",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-iris-library.git",
-    "baseUrl": "https://github.com/github_account/react-native-iris-library"
+    "url": "git+https://github.com/iris-data-driven/react-native-iris-library.git",
+    "baseUrl": "https://github.com/iris-data-driven/react-native-iris-library"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "data-driven",
+    "iris",
+    "notification",
+    "geolocation"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Thiago R. C. Brandt",
+    "email": "thiago.brandt@somosiris.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
