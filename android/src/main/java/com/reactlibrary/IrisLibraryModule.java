@@ -1,5 +1,5 @@
 package com.reactlibrary;
-
+import com.somosiris.mobileandroidsdk.SDKIris;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+
 
 public class IrisLibraryModule extends ReactContextBaseJavaModule {
 
@@ -25,17 +26,19 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void initNotifications() {
-        SDKIris.init(context: Context)
+        Context context = getReactApplicationContext();
+        SDKIris.INSTANCE.init(context);
     }
 
     @ReactMethod
     public void initGeolocation() {
-        SDKIris.startGeofenceService(this: Activity)
+        Activity activity = getCurrentActivity();
+        SDKIris.INSTANCE.startGeofenceService(activity);
     }
 
     @ReactMethod
-    public void sendTag(key: String, value: String){
-        SDKIris.sendTag(value: value, tag: key)
+    public void sendTag(String key, String value){
+        SDKIris.INSTANCE.sendTag(key, value);
     }
 
     @ReactMethod
