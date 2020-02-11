@@ -8,7 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/sdk_iris_1.0.1" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
