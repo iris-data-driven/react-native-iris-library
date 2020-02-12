@@ -113,7 +113,7 @@ dependencies {
 
     implementation 'com.somosiris:sdk-iris:1.0.1'
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-    implementation "com.onesignal:OneSignal:3.10.2"
+//    implementation "com.onesignal:OneSignal:3.10.2"
 
 
 }
