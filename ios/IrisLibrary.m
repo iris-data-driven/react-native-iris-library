@@ -12,12 +12,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
     // TODO: Implement some actually useful functionality
     callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);
 }
-
-
 RCT_EXPORT_METHOD(initNotifications:(NSDictionary * _Nullable)launchOptions)
 {
   [RCTIris initNotifications:launchOptions];
-  
 }
 RCT_EXPORT_METHOD(initGeolocation:(NSDictionary *)launchOptions)
 {

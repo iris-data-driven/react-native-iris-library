@@ -29,6 +29,10 @@ class RCTIris: NSObject {
     IrisNotify.sendTag(key, value: value)
   }
   
+  @objc
+  static func requiresMainQueueSetup() -> Bool {
+    return true
+  }
   
 }
   
