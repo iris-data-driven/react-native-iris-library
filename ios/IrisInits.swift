@@ -5,8 +5,7 @@
 //  Created by Thiago Rodrigo Da Costa Brandt on 30/01/20.
 //  Copyright © 2020 Facebook. All rights reserved.
 //
-
-import IrisSDK
+import IrisSDKStatic
 
 @objc(RCTIris)
 class RCTIris: NSObject {
