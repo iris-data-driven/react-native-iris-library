@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		375C94B49DFD508595B73A8E /* libPods-IrisLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 582CC0B03DDEEA3ACA88145E /* libPods-IrisLibrary.a */; };
+		7DD9749C10CA15E8110CAC07 /* libPods-IrisLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EB29DBEE215061F1E92CB /* libPods-IrisLibrary.a */; };
 		B3E7B58A1CC2AC0600A0062D /* IrisLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* IrisLibrary.m */; };
 		F5FA33F323E3584E009528AD /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FA33D423E35812009528AD /* libReact.a */; platformFilter = ios; };
 		F5FA341123E383B9009528AD /* IrisInits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FA341023E383B9009528AD /* IrisInits.swift */; };
@@ -129,12 +129,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05658515C8754A6184CB971F /* Pods-IrisLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrisLibrary.debug.xcconfig"; path = "Target Support Files/Pods-IrisLibrary/Pods-IrisLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 		134814201AA4EA6300B7C361 /* libIrisLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIrisLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		13C52F2F0A4238C301F887F5 /* Pods-IrisLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrisLibrary.release.xcconfig"; path = "Target Support Files/Pods-IrisLibrary/Pods-IrisLibrary.release.xcconfig"; sourceTree = "<group>"; };
-		582CC0B03DDEEA3ACA88145E /* libPods-IrisLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IrisLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		829EB29DBEE215061F1E92CB /* libPods-IrisLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IrisLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC4B4E495EE96BFD144AA12D /* Pods-IrisLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrisLibrary.release.xcconfig"; path = "Target Support Files/Pods-IrisLibrary/Pods-IrisLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* IrisLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IrisLibrary.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* IrisLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IrisLibrary.m; sourceTree = "<group>"; };
+		DC797E3C926187821485D3C8 /* Pods-IrisLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrisLibrary.debug.xcconfig"; path = "Target Support Files/Pods-IrisLibrary/Pods-IrisLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 		F5FA33C023E35810009528AD /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		F5FA33F523E35EF0009528AD /* IrisLibrary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IrisLibrary-Bridging-Header.h"; sourceTree = "<group>"; };
 		F5FA341023E383B9009528AD /* IrisInits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisInits.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5FA33F323E3584E009528AD /* libReact.a in Frameworks */,
-				375C94B49DFD508595B73A8E /* libPods-IrisLibrary.a in Frameworks */,
+				7DD9749C10CA15E8110CAC07 /* libPods-IrisLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,8 +177,8 @@
 		D11881649A341B34F4691B31 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				05658515C8754A6184CB971F /* Pods-IrisLibrary.debug.xcconfig */,
-				13C52F2F0A4238C301F887F5 /* Pods-IrisLibrary.release.xcconfig */,
+				DC797E3C926187821485D3C8 /* Pods-IrisLibrary.debug.xcconfig */,
+				AC4B4E495EE96BFD144AA12D /* Pods-IrisLibrary.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				F5FA33C023E35810009528AD /* React.xcodeproj */,
-				582CC0B03DDEEA3ACA88145E /* libPods-IrisLibrary.a */,
+				829EB29DBEE215061F1E92CB /* libPods-IrisLibrary.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -222,7 +222,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "IrisLibrary" */;
 			buildPhases = (
-				C9AE715C2E5F177DB38B5850 /* [CP] Check Pods Manifest.lock */,
+				EAB537C52A45A8603DE2A324 /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 			);
@@ -390,7 +390,7 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C9AE715C2E5F177DB38B5850 /* [CP] Check Pods Manifest.lock */ = {
+		EAB537C52A45A8603DE2A324 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -528,7 +528,7 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05658515C8754A6184CB971F /* Pods-IrisLibrary.debug.xcconfig */;
+			baseConfigurationReference = DC797E3C926187821485D3C8 /* Pods-IrisLibrary.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -559,7 +559,7 @@
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13C52F2F0A4238C301F887F5 /* Pods-IrisLibrary.release.xcconfig */;
+			baseConfigurationReference = AC4B4E495EE96BFD144AA12D /* Pods-IrisLibrary.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;

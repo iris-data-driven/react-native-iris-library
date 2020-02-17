@@ -1,12 +1,12 @@
 PODS:
-  - IrisSDKStatic (0.0.1):
+  - IrisSDKStatic (0.0.2):
     - OneSignal (~> 2.11.0)
     - PlotPlugin (= 2.3.1)
   - OneSignal (2.11.2)
   - PlotPlugin (2.3.1)
 
 DEPENDENCIES:
-  - IrisSDKStatic
+  - IrisSDKStatic (~> 0.0.2)
 
 SPEC REPOS:
   trunk:
@@ -15,10 +15,10 @@ SPEC REPOS:
     - PlotPlugin
 
 SPEC CHECKSUMS:
-  IrisSDKStatic: 169d04ddcd758bf684bcc4164ae318c610f11725
+  IrisSDKStatic: 267402aaab05c52ded9125dcd0100e50bf567ee7
   OneSignal: 4e3e68bb6c29975286a2fa910cb49132bc6e20bb
   PlotPlugin: 5bc143b2f3499b49268b297f0b0b8dfc1a0aada0
 
-PODFILE CHECKSUM: 2ebccce8f9d9a31209ae68c57de44b4ce76205d0
+PODFILE CHECKSUM: 6dceecf3dd3583ae72528ef459c1a9cfc45c2f23
 
 COCOAPODS: 1.9.0.beta.2
