@@ -6,6 +6,6 @@ target 'IrisLibrary' do
   #use_frameworks!
 
   # Pods for IrisLibrary
-pod 'IrisSDKStatic'
+pod 'IrisSDKStatic', '~>0.0.2'
 
 end
