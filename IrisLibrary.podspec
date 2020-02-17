@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
 
   s.dependency "React"
   # ...
-  s.dependency "IrisSDKStatic"
+  s.dependency "IrisSDKStatic", "~>0.0.2"
 end
 
