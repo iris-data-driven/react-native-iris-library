@@ -20,20 +20,22 @@ class IrisLibrary: NSObject {
   }
   @objc
   func initGeolocation(_ launchOptions: [AnyHashable: Any]?) -> Void {
-    let geofence = IrisGeotrigger(launchOptions)
-    geofence.start()
-    print("Geolocation Service initialized")
+    DispatchQueue.main.async {
+      let geofence = IrisGeotrigger(launchOptions)
+      geofence.start()
+      print("Geolocation Service initialized")
+    }
   }
   
   @objc
-  func sendTag(key: String, value: String) -> Void {
+  func sendTag(_ key: String, value: String) -> Void {
     IrisNotify.sendTag(key, value: value)
-    print("Tag sended do service")
+    print("Tag sended to service")
   }
   
   @objc
   static func requiresMainQueueSetup() -> Bool {
-    return true
+    return false
   }
   
 }

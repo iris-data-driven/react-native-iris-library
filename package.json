@@ -1,7 +1,7 @@
 {
   "name": "react-native-iris-library",
   "title": "React Native Iris Library",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "React Native module for SDK Iris",
   "main": "index.js",
   "scripts": {
