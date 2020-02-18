@@ -11,7 +11,8 @@ import IrisSDKStatic
 class IrisLibrary: NSObject {
   @objc
   func initNotifications(_ launchOptions: [AnyHashable: Any]?) -> Void {
-      let notify = IrisNotify()
+    let launchOptions: [AnyHashable: Any] = [:]
+    let notify = IrisNotify()
       notify.initWithCallbacks(launchOptions)
       IrisNotify.promptForPushNotifications { accepted in
         print("User accepted notifications: \(accepted)")
@@ -19,8 +20,9 @@ class IrisLibrary: NSObject {
       print("Notification Service initialized")
   }
   @objc
-  func initGeolocation(_ launchOptions: [AnyHashable: Any]?) -> Void {
+  func initGeolocation() -> Void {
     DispatchQueue.main.async {
+      let launchOptions: [AnyHashable: Any] = [:]
       let geofence = IrisGeotrigger(launchOptions)
       geofence.start()
       print("Geolocation Service initialized")
