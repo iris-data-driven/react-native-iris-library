@@ -7,25 +7,28 @@
 //
 import IrisSDKStatic
 
-@objc(RCTIris)
-class RCTIris: NSObject {
-  @objc(initNotifications:)
-   class func initNotifications(_ launchOptions: [AnyHashable: Any]?) {
+@objc(IrisLibrary)
+class IrisLibrary: NSObject {
+  @objc
+  func initNotifications(_ launchOptions: [AnyHashable: Any]?) {
       let notify = IrisNotify()
       notify.initWithCallbacks(launchOptions)
       IrisNotify.promptForPushNotifications { accepted in
         print("User accepted notifications: \(accepted)")
       }
+      print("Notification Service initialized")
   }
-  @objc(geolocationService:)
-   class func geolocationService(_ launchOptions: [AnyHashable: Any]?) {
+  @objc
+  func initGeolocation(_ launchOptions: [AnyHashable: Any]?) {
     let geofence = IrisGeotrigger(launchOptions)
     geofence.start()
+    print("Geolocation Service initialized")
   }
   
-  @objc(sendTag::)
-  class func sendTag(key: String, value: String) {
+  @objc
+  func sendTag(key: String, value: String) {
     IrisNotify.sendTag(key, value: value)
+    print("Tag sended do service")
   }
   
   @objc
