@@ -20,6 +20,9 @@ Knowed issues:
 ### Android integration
 Open the build.gradle file from app
 ```
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
 defaultConfig {
 ...
 manifestPlaceholders = [
@@ -54,7 +57,28 @@ dependencies {
 ...
 }
 ```
-add `maven {url 'https://iris-mobile-repo.s3.amazonaws.com/android/'}`
+Open the build.gradle file from project
+add 
+```
+dependencies {
+...
+
+        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"
+        classpath 'com.google.gms:google-services:4.3.3'
+
+...
+}
+
+
+maven {
+  url 'https://iris-mobile-repo.s3.amazonaws.com/android/'
+ }
+maven {
+  url 'https://maven-repo.plotprojects.com'
+ }
+```
+
 
 ## Usage
 Add notification configuration from native docs:
