@@ -62,7 +62,7 @@ Add notification configuration from native docs:
 - Android - https://iris-mobile-repo.s3.amazonaws.com/documentation/android.html
 
 ```javascript
-import IrisLibrary from 'react-native-iris-library';
+import NativeModules from 'react';
 
 // TODO: What to do with the module?
 Using inside RN code:
