@@ -9,7 +9,7 @@
 `$ react-native link react-native-iris-library`
 ### iOS integration
 `$ cd ios & pod install`
-Add a .swift empty file and click "Create Bridging Header" from Xcode popup
+Add a .swift empty file (Xcode > File > New > File > .swift) and click "Create Bridging Header" from Xcode popup
 Build and run.
 
 Knowed issues:
@@ -18,18 +18,61 @@ Knowed issues:
 * Error *Unable to resolve module scheduler* => clean cache from Metro Bundler using yarn.
 
 ### Android integration
-Open the build.gradle file from project
-add `classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"` inside "Dependencies"
+Open the build.gradle file from app
+```
+defaultConfig {
+...
+manifestPlaceholders = [
+                onesignal_app_id               : '',
+                onesignal_google_project_number: 'REMOTE'
+        ]
+...
+}
+
+dependencies {
+...
+    implementation project(':react-native-iris-library')
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "com.facebook.react:react-native:+"  // From node_modules
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation ('com.onesignal:OneSignal:3.10.3') {
+        exclude group: 'com.google.android.gms'
+        exclude group: 'com.google.firebase'
+    }
+    implementation 'com.plotprojects:plot-android:3.10.0'
+    implementation 'com.google.firebase:firebase-core:17.2.2'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.1'
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    implementation 'com.android.support:multidex:1.0.3'
+...
+}
+```
 add `maven {url 'https://iris-mobile-repo.s3.amazonaws.com/android/'}`
 
 ## Usage
 Add notification configuration from native docs:
-- iOS - https://iris-mobile-repo.s3.amazonaws.com/documtantions/ios.html
-- Android - https://iris-mobile-repo.s3.amazonaws.com/documtantions/android.html
+- iOS     - https://iris-mobile-repo.s3.amazonaws.com/documentation/ios.html
+- Android - https://iris-mobile-repo.s3.amazonaws.com/documentation/android.html
 
 ```javascript
 import IrisLibrary from 'react-native-iris-library';
 
 // TODO: What to do with the module?
-IrisLibrary;
+Using inside RN code:
+
+//To init Notification Service
+NativeModules.IrisLibrary.initNotifications()
+
+//To init Geolocation Service
+NativeModules.IrisLibrary.initGeolocation()
+
+//To send the tag id4all
+NativeModules.IrisLibrary.sendTag("KEY", "VALUE") 
 ```
