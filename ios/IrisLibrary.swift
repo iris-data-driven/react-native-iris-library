@@ -10,7 +10,7 @@ import IrisSDKStatic
 @objc(IrisLibrary)
 class IrisLibrary: NSObject {
   @objc
-  func initNotifications(_ launchOptions: [AnyHashable: Any]?) -> Void {
+  func initNotifications() -> Void {
     let launchOptions: [AnyHashable: Any] = [:]
     let notify = IrisNotify()
       notify.initWithCallbacks(launchOptions)
