@@ -69,14 +69,20 @@ dependencies {
 
 ...
 }
-
-
-maven {
-  url 'https://iris-mobile-repo.s3.amazonaws.com/android/'
- }
-maven {
-  url 'https://maven-repo.plotprojects.com'
- }
+allprojects {
+    repositories {
+...
+        maven {
+            url 'https://maven-repo.plotprojects.com/'
+        }
+        maven {
+            url 'http://iris-mobile-repo.s3.amazonaws.com/android/release/'
+            content{
+                includeGroup "com.somosiris"
+            }
+        }
+    }
+}
 ```
 
 
