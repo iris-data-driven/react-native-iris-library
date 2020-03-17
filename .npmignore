@@ -1,4 +1,5 @@
-Pods/
 ios/Pods
+android/.idea
 Podfile
 Podfile.lock
+Pods/
