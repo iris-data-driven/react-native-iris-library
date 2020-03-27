@@ -89,6 +89,7 @@ allprojects {
 ## Usage
 Add notification configuration from native docs:
 - iOS     - https://iris-mobile-repo.s3.amazonaws.com/documentation/ios.html
+if your integration with React Native, skip the Carthage configuration.
 - Android - https://iris-mobile-repo.s3.amazonaws.com/documentation/android.html
 
 ```javascript
