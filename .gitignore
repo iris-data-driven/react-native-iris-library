@@ -17,6 +17,7 @@ ios/Carthage/Build
 #           - Also handy if you have a large number of dependant pods
 #           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
 Pods/
+ios/Podfile.lock
 
 ### Kotlin ###
 # Compiled class file

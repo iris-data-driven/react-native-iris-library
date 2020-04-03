@@ -6,6 +6,8 @@ target 'IrisLibrary' do
   #use_frameworks!
 
   # Pods for IrisLibrary
-pod 'IrisSDKStatic', '~>0.0.2'
+pod 'IrisSDKStatic', '~>0.4.0'
+pod 'OneSignal', '~>2.11.0'
+pod 'PlotPlugin', '2.3.1'
 
 end

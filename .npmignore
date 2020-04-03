@@ -1,5 +1,7 @@
 ios/Pods
+ios/Podfile.lock
 android/.idea
+yarn.lock
 Podfile
 Podfile.lock
 Pods/
