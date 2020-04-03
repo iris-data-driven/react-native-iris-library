@@ -8,6 +8,12 @@
 
 `$ react-native link react-native-iris-library`
 ### iOS integration
+Add to your podfile (in case you already had use of one of the frameworks, you don't have to add it)
+```
+pod 'PlotPlugin','2.6.1
+pod 'OneSignal', '~>2.11.0'
+```
+
 `$ cd ios & pod install`
 Add a .swift empty file (Xcode > File > New > File > .swift) and click "Create Bridging Header" from Xcode popup
 Build and run.
