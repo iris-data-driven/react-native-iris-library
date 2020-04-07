@@ -23,5 +23,7 @@ Pod::Spec.new do |s|
   s.dependency "React"
   # ...
   s.dependency "IrisSDKStatic", "~>0.4.0"
+  s.dependency "OneSignal"
+  s.dependency "PlotPlugin", "2.3.1"
 end
 
