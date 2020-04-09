@@ -10,8 +10,8 @@
 ### iOS integration
 Add to your podfile (in case you already had use of one of the frameworks, you don't have to add it)
 ```
-pod 'PlotPlugin','2.6.1
-pod 'OneSignal', '~>2.11.0'
+pod 'PlotPlugin','2.6.1'
+pod 'OneSignal', '~>2.12.0'
 ```
 
 `$ cd ios & pod install`
