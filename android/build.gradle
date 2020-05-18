@@ -35,6 +35,9 @@ buildscript {
         repositories {
             google()
             jcenter()
+            maven {
+                url 'https://maven-repo.plotprojects.com'
+            }
         }
         dependencies {
             classpath 'com.android.tools.build:gradle:3.4.1'
@@ -78,7 +81,7 @@ repositories {
     google()
     jcenter()
     maven {
-        url 'http://iris-mobile-repo.s3.amazonaws.com/android/release/'
+        url 'http://iris-mobile-repo.s3.amazonaws.com/android/homolog/'
         content{
             includeGroup "com.somosiris"
         }
@@ -92,10 +95,10 @@ dependencies {
     implementation "androidx.room:room-runtime:2.2.3"
     kapt "android.arch.persistence.room:compiler:2.2.3"
 
-    implementation 'com.somosiris:sdk-iris:0.0.1'
+    implementation 'com.somosiris:sdk-iris:0.0.3'
     implementation "androidx.room:room-runtime:2.2.3"
     implementation "com.google.code.gson:gson:2.8.6"
-    implementation "com.plotprojects:plot-android:3.10.0"
+    implementation "com.plotprojects:plot-android:3.+"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3"
     implementation "com.squareup.retrofit2:retrofit:2.6.0"

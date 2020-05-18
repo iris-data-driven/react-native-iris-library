@@ -7,15 +7,16 @@
 //
 
 import Foundation
-
-class IrisEventEmitter {
+@objc(IrisEventEmitter)
+class IrisEventEmitter: NSObject {
     public static var instance = IrisEventEmitter()
     private static var eventEmitter: ReactNativeEventEmitter!
-    private init() {}
+    private override init() {}
     
     func register(_ eventEmitter: ReactNativeEventEmitter) {
         IrisEventEmitter.eventEmitter = eventEmitter
     }
+    @objc
     func dispatch(name: String, body: Any?) {
         IrisEventEmitter.eventEmitter.sendEvent(withName: name, body: body)
     }

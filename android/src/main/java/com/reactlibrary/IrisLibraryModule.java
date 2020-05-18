@@ -10,6 +10,10 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 
+import java.util.Optional;
+
+import javax.annotation.Nullable;
+
 
 public class IrisLibraryModule extends ReactContextBaseJavaModule {
 
@@ -40,12 +44,18 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void sendTag(String key, String value){
+    public void sendTag(String key, String value) {
         SDKIris.INSTANCE.sendTag(value, key);
         Log.i("Tags", "sended successfully");
 
     }
-
+    @ReactMethod
+    public void addCustomer(@Nullable String cpf, @Nullable String phone, @Nullable String email) {
+        Context context = getReactApplicationContext();
+        String userId = SDKIris.INSTANCE.getUserId(context, cpf, email, phone);
+        SDKIris.INSTANCE.create
+        Log.i("Id", "generated successfully");
+    }
     @ReactMethod
     public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
         // TODO: Implement some actually useful functionality

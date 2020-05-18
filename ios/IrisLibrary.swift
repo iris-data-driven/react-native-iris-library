@@ -36,8 +36,8 @@ class IrisLibrary: NSObject {
   }
   
   @objc
-    func addCustomer() -> Void {
-    
+    func addCustomer(_ phone: String, cpf: String, email: String, source: String) -> Void {
+     IrisNotify.addCustomer(phone: phone, cpf: cpf, email: email, source: source)
     }
     
     

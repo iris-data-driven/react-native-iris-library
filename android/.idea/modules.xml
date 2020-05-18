@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android.iml" filepath="$PROJECT_DIR$/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/react-native-iris-library-android.iml" filepath="$PROJECT_DIR$/react-native-iris-library-android.iml" group="android" />
     </modules>
   </component>
 </project>

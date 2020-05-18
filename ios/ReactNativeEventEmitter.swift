@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+@objc(ReactNativeEventEmitter)
 open class ReactNativeEventEmitter: RCTEventEmitter {
     
     override init(){
