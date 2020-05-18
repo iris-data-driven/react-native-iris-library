@@ -36,6 +36,12 @@ class IrisLibrary: NSObject {
   }
   
   @objc
+    func addCustomer() -> Void {
+    
+    }
+    
+    
+  @objc
   static func requiresMainQueueSetup() -> Bool {
     return false
   }

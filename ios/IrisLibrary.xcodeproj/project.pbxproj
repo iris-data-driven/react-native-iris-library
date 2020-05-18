@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7DD9749C10CA15E8110CAC07 /* libPods-IrisLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 829EB29DBEE215061F1E92CB /* libPods-IrisLibrary.a */; };
 		B3E7B58A1CC2AC0600A0062D /* IrisLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* IrisLibrary.m */; };
-		F5FA33F323E3584E009528AD /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FA33D423E35812009528AD /* libReact.a */; platformFilter = ios; };
+		CC1236152472EFDA003E0531 /* ReactNativeEventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1236142472EFDA003E0531 /* ReactNativeEventEmitter.swift */; };
+		CC5E6E8F2461E44300530575 /* IrisEventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5E6E8E2461E44300530575 /* IrisEventEmitter.swift */; };
+		CC5E6E912461E5EE00530575 /* ReactNativeEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5E6E902461E5EE00530575 /* ReactNativeEventEmitter.m */; };
+		F5C1B2C8F230CDD9E4F827FA /* libPods-IrisLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E919FD298BB76BA62A402950 /* libPods-IrisLibrary.a */; };
 		F5FA341123E383B9009528AD /* IrisLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FA341023E383B9009528AD /* IrisLibrary.swift */; };
 /* End PBXBuildFile section */
 
@@ -129,11 +131,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D8C9EE41B49475CAA337F85 /* Pods-IrisLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrisLibrary.debug.xcconfig"; path = "Target Support Files/Pods-IrisLibrary/Pods-IrisLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 		134814201AA4EA6300B7C361 /* libIrisLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIrisLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		829EB29DBEE215061F1E92CB /* libPods-IrisLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IrisLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC4B4E495EE96BFD144AA12D /* Pods-IrisLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrisLibrary.release.xcconfig"; path = "Target Support Files/Pods-IrisLibrary/Pods-IrisLibrary.release.xcconfig"; sourceTree = "<group>"; };
+		7F7030865EF3BF932DD05FA7 /* Pods-IrisLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrisLibrary.release.xcconfig"; path = "Target Support Files/Pods-IrisLibrary/Pods-IrisLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* IrisLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IrisLibrary.m; sourceTree = "<group>"; };
-		DC797E3C926187821485D3C8 /* Pods-IrisLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrisLibrary.debug.xcconfig"; path = "Target Support Files/Pods-IrisLibrary/Pods-IrisLibrary.debug.xcconfig"; sourceTree = "<group>"; };
+		CC1236142472EFDA003E0531 /* ReactNativeEventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeEventEmitter.swift; sourceTree = "<group>"; };
+		CC302D14246097EF00B2DD7E /* IrisLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IrisLibrary.h; sourceTree = "<group>"; };
+		CC5E6E8E2461E44300530575 /* IrisEventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisEventEmitter.swift; sourceTree = "<group>"; };
+		CC5E6E902461E5EE00530575 /* ReactNativeEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeEventEmitter.m; sourceTree = "<group>"; };
+		E919FD298BB76BA62A402950 /* libPods-IrisLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IrisLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FA33C023E35810009528AD /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		F5FA33F523E35EF0009528AD /* IrisLibrary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IrisLibrary-Bridging-Header.h"; sourceTree = "<group>"; };
 		F5FA341023E383B9009528AD /* IrisLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisLibrary.swift; sourceTree = "<group>"; };
@@ -144,8 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5FA33F323E3584E009528AD /* libReact.a in Frameworks */,
-				7DD9749C10CA15E8110CAC07 /* libPods-IrisLibrary.a in Frameworks */,
+				F5C1B2C8F230CDD9E4F827FA /* libPods-IrisLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +168,10 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				CC1236142472EFDA003E0531 /* ReactNativeEventEmitter.swift */,
+				CC5E6E8E2461E44300530575 /* IrisEventEmitter.swift */,
+				CC5E6E902461E5EE00530575 /* ReactNativeEventEmitter.m */,
+				CC302D14246097EF00B2DD7E /* IrisLibrary.h */,
 				F5FA341023E383B9009528AD /* IrisLibrary.swift */,
 				B3E7B5891CC2AC0600A0062D /* IrisLibrary.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -175,8 +184,8 @@
 		D11881649A341B34F4691B31 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DC797E3C926187821485D3C8 /* Pods-IrisLibrary.debug.xcconfig */,
-				AC4B4E495EE96BFD144AA12D /* Pods-IrisLibrary.release.xcconfig */,
+				0D8C9EE41B49475CAA337F85 /* Pods-IrisLibrary.debug.xcconfig */,
+				7F7030865EF3BF932DD05FA7 /* Pods-IrisLibrary.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -185,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				F5FA33C023E35810009528AD /* React.xcodeproj */,
-				829EB29DBEE215061F1E92CB /* libPods-IrisLibrary.a */,
+				E919FD298BB76BA62A402950 /* libPods-IrisLibrary.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -220,7 +229,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "IrisLibrary" */;
 			buildPhases = (
-				EAB537C52A45A8603DE2A324 /* [CP] Check Pods Manifest.lock */,
+				4B8ECEDF40B4F722300CE1DC /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 			);
@@ -388,7 +397,7 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		EAB537C52A45A8603DE2A324 /* [CP] Check Pods Manifest.lock */ = {
+		4B8ECEDF40B4F722300CE1DC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -417,7 +426,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC5E6E8F2461E44300530575 /* IrisEventEmitter.swift in Sources */,
 				F5FA341123E383B9009528AD /* IrisLibrary.swift in Sources */,
+				CC5E6E912461E5EE00530575 /* ReactNativeEventEmitter.m in Sources */,
+				CC1236152472EFDA003E0531 /* ReactNativeEventEmitter.swift in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* IrisLibrary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -517,7 +529,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -526,7 +538,7 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC797E3C926187821485D3C8 /* Pods-IrisLibrary.debug.xcconfig */;
+			baseConfigurationReference = 0D8C9EE41B49475CAA337F85 /* Pods-IrisLibrary.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -537,16 +549,9 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = IrisLibrary;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "IrisLibrary-Bridging-Header.h";
@@ -557,7 +562,7 @@
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC4B4E495EE96BFD144AA12D /* Pods-IrisLibrary.release.xcconfig */;
+			baseConfigurationReference = 7F7030865EF3BF932DD05FA7 /* Pods-IrisLibrary.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -568,16 +573,9 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = IrisLibrary;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "IrisLibrary-Bridging-Header.h";
