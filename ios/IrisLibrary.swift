@@ -11,13 +11,16 @@ import IrisSDKStatic
 class IrisLibrary: NSObject {
   @objc
   func initNotifications() -> Void {
-    let launchOptions: [AnyHashable: Any] = [:]
-    let notify = IrisNotify()
-      notify.initWithCallbacks(launchOptions)
-      IrisNotify.promptForPushNotifications { accepted in
-        print("User accepted notifications: \(accepted)")
-      }
-      print("Notification Service initialized")
+    DispatchQueue.main.async {
+        let launchOptions: [AnyHashable: Any] = [:]
+        let notify = IrisNotify()
+        notify.delegate = UIApplication.shared.delegate as? PushDeepLinkingDelegate
+        notify.initWithCallbacks(launchOptions)
+        IrisNotify.promptForPushNotifications { accepted in
+            print("User accepted notifications: \(accepted)")
+          }
+        print("Notification Service initialized")
+    }
   }
   @objc
   func initGeolocation() -> Void {
@@ -39,6 +42,10 @@ class IrisLibrary: NSObject {
     func addCustomer(_ phone: String, cpf: String, email: String, source: String) -> Void {
      IrisNotify.addCustomer(phone: phone, cpf: cpf, email: email, source: source)
     }
+  @objc
+    func setHomolog() -> Void {
+    IrisEnv.default.set(.homolog)
+    }
     
     
   @objc
@@ -47,4 +54,3 @@ class IrisLibrary: NSObject {
   }
   
 }
-  

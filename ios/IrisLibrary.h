@@ -10,6 +10,8 @@
 #import <React/RCTEventEmitter.h>
 
 
-@interface IrisLibrary : RCTEventEmitter <RCTBridgeModule>
+@interface IrisLibraryEvent : RCTEventEmitter <RCTBridgeModule>
+
+- (void)irisEventReceived:(NSDictionary *)dictionary;
 
 @end

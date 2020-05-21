@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* IrisLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* IrisLibrary.m */; };
-		CC1236152472EFDA003E0531 /* ReactNativeEventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1236142472EFDA003E0531 /* ReactNativeEventEmitter.swift */; };
-		CC5E6E8F2461E44300530575 /* IrisEventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5E6E8E2461E44300530575 /* IrisEventEmitter.swift */; };
-		CC5E6E912461E5EE00530575 /* ReactNativeEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5E6E902461E5EE00530575 /* ReactNativeEventEmitter.m */; };
 		F5C1B2C8F230CDD9E4F827FA /* libPods-IrisLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E919FD298BB76BA62A402950 /* libPods-IrisLibrary.a */; };
 		F5FA341123E383B9009528AD /* IrisLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FA341023E383B9009528AD /* IrisLibrary.swift */; };
 /* End PBXBuildFile section */
@@ -135,10 +132,7 @@
 		134814201AA4EA6300B7C361 /* libIrisLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIrisLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7030865EF3BF932DD05FA7 /* Pods-IrisLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrisLibrary.release.xcconfig"; path = "Target Support Files/Pods-IrisLibrary/Pods-IrisLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* IrisLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IrisLibrary.m; sourceTree = "<group>"; };
-		CC1236142472EFDA003E0531 /* ReactNativeEventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeEventEmitter.swift; sourceTree = "<group>"; };
 		CC302D14246097EF00B2DD7E /* IrisLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IrisLibrary.h; sourceTree = "<group>"; };
-		CC5E6E8E2461E44300530575 /* IrisEventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrisEventEmitter.swift; sourceTree = "<group>"; };
-		CC5E6E902461E5EE00530575 /* ReactNativeEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeEventEmitter.m; sourceTree = "<group>"; };
 		E919FD298BB76BA62A402950 /* libPods-IrisLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IrisLibrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FA33C023E35810009528AD /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		F5FA33F523E35EF0009528AD /* IrisLibrary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IrisLibrary-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -168,9 +162,6 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				CC1236142472EFDA003E0531 /* ReactNativeEventEmitter.swift */,
-				CC5E6E8E2461E44300530575 /* IrisEventEmitter.swift */,
-				CC5E6E902461E5EE00530575 /* ReactNativeEventEmitter.m */,
 				CC302D14246097EF00B2DD7E /* IrisLibrary.h */,
 				F5FA341023E383B9009528AD /* IrisLibrary.swift */,
 				B3E7B5891CC2AC0600A0062D /* IrisLibrary.m */,
@@ -426,10 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC5E6E8F2461E44300530575 /* IrisEventEmitter.swift in Sources */,
 				F5FA341123E383B9009528AD /* IrisLibrary.swift in Sources */,
-				CC5E6E912461E5EE00530575 /* ReactNativeEventEmitter.m in Sources */,
-				CC1236152472EFDA003E0531 /* ReactNativeEventEmitter.swift in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* IrisLibrary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
