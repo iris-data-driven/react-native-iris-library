@@ -34,3 +34,22 @@ RCT_EXPORT_MODULE();
 }
 
 @end
+
+
+/*
+ AppDelegate.h
+ 
+ #import <IrisSDKStatic/IrisSDKStatic-Swift.h>
+
+ @interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate, PushDeepLinkingDelegate>
+ 
+ 
+ AppDelegate.m
+ #import <IrisLibrary.h>
+ 
+ - (void)send:(NSDictionary * _Nonnull)dict {
+ IrisLibraryEvent *notification =  [IrisLibraryEvent allocWithZone:nil];
+ [notification irisEventReceived:dict];
+ }
+ */
+ 
