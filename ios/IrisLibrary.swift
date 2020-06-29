@@ -22,31 +22,32 @@ class IrisLibrary: NSObject {
         print("Notification Service initialized")
     }
   }
-  @objc
-  func initGeolocation() -> Void {
-    DispatchQueue.main.async {
-      let launchOptions: [AnyHashable: Any] = [:]
-      let geofence = IrisGeotrigger(launchOptions)
-      geofence.start()
-      print("Geolocation Service initialized")
-    }
-  }
   
   @objc
-  func sendTag(_ key: String, value: String) -> Void {
-    IrisNotify.sendTag(key, value: value)
-    print("Tag sended to service")
+    func sendTag(_ key: String, value: String) -> Void {
+        IrisNotify.sendTag(key, value: value)
+        print("Tag sended to service")
   }
   
   @objc
     func addCustomer(_ phone: String, cpf: String, email: String, source: String) -> Void {
-     IrisNotify.addCustomer(phone: phone, cpf: cpf, email: email, source: source)
+        IrisNotify.addCustomer(phone: phone, cpf: cpf, email: email, source: source)
     }
   @objc
     func setHomolog() -> Void {
-    IrisEnv.default.set(.homolog)
+        IrisEnv.default.set(.homolog)
     }
-    
+  @objc
+    func create(_ user: NSDictionary) -> Void {
+        IrisEnv.default.set(.homolog)
+        let newUser = try? JSONSerialization.data(withJSONObject: user, options: .prettyPrinted)
+        if let newUserData  = newUser {
+            IrisNotify.create(user: newUserData)
+            print("Received object from JS")
+        } else {
+                print("Cannot convert Dictionary to Data")
+            }
+    }
     
   @objc
   static func requiresMainQueueSetup() -> Bool {

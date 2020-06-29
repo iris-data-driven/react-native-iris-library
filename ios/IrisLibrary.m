@@ -8,6 +8,7 @@ RCT_EXTERN_METHOD(initGeolocation)
 RCT_EXTERN_METHOD(sendTag:(NSString *)key value:(NSString *)value)
 RCT_EXTERN_METHOD(setHomolog)
 RCT_EXTERN_METHOD(addCustomer:(nullable NSString *)phone cpf:(nullable NSString *)cpf email:(nullable NSString *)email source:(nullable NSString *)source)
+RCT_EXTERN_METHOD(create:(NSDictionary * )user)
 @end
 
 @implementation IrisLibraryEvent
