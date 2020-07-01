@@ -10,7 +10,6 @@
 ### iOS integration
 Add to your podfile (in case you already had use of one of the frameworks, you don't have to add it)
 ```
-pod 'PlotPlugin','2.6.1'
 pod 'OneSignal', '~>2.12.0'
 ```
 
@@ -49,16 +48,11 @@ dependencies {
         exclude group: 'com.google.android.gms'
         exclude group: 'com.google.firebase'
     }
-    implementation 'com.plotprojects:plot-android:3.10.0'
     implementation 'com.google.firebase:firebase-core:17.2.2'
     implementation 'com.google.firebase:firebase-messaging:20.1.0'
-
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3'
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.0.1'
-    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
     implementation 'com.android.support:multidex:1.0.3'
 ...
 }
@@ -78,9 +72,6 @@ dependencies {
 allprojects {
     repositories {
 ...
-        maven {
-            url 'https://maven-repo.plotprojects.com/'
-        }
         maven {
             url 'http://iris-mobile-repo.s3.amazonaws.com/android/release/'
             content{
@@ -107,9 +98,46 @@ Using inside RN code:
 //To init Notification Service
 NativeModules.IrisLibrary.initNotifications()
 
-//To init Geolocation Service
-NativeModules.IrisLibrary.initGeolocation()
-
 //To send the tag id4all
-NativeModules.IrisLibrary.sendTag("KEY", "VALUE") 
+NativeModules.IrisLibrary.sendTag("KEY", "VALUE")
+
+//To create a new User for CDP Database
+NativeModules.IrisLibrary.create(newUser)
+
+newUser has to be an Object type:
+ - *At least 1* of keys (email, phone, document)  is required
+ - Key *id_source* is required
+ - If you send some *address*, *city* and *uf* are required 
+
+{
+    "name" : "John Bean",
+    "gender" : "M",
+    "birthday" : "1990-10-10",
+    "document" : "02426147016",
+    "email" : "name@mail.com",
+    "phone" : 55991234567,
+    "id_source" : "myid_12356",
+    "opt_in_email" : true,
+    "opt_in_sms" : true,
+    "addresses" : [
+        {
+          "street" : "Avenida Ipiranga",
+          "city" : "São Paulo",
+          "country" : "Brasil",
+          "uf" : "SP",
+          "nickname" : "Endereço Profissional",
+          "complement" : "Andar 12",
+          "zipcode" : "90040620",
+          "neighborhood" : "Partenon",
+          "number" : "9000"
+        }
+    ]
+}
+
+More info at: https://bulk.homolog.api.4all.com/docs/#operation/insertUsers
+
+//In order to receive push notification, use:
+NativeModules.IrisLibrary.addCustomer(DOCUMENT_VALUE, PHONE_VALUE, MAIL_VALUE, "")
+
+
 ```
