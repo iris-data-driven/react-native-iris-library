@@ -1,5 +1,6 @@
 package com.reactlibrary;
 
+import com.facebook.react.bridge.ReadableMap;
 import com.somosiris.mobileandroidsdk.SDKIris;
 
 import android.app.Activity;
@@ -15,6 +16,9 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.Arguments;
 
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -43,12 +47,12 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
         Log.i("Notification", "Service initialized");
     }
 
-    @ReactMethod
-    public void initGeolocation() {
-        Activity activity = getCurrentActivity();
-        SDKIris.INSTANCE.startGeofenceService(activity);
-        Log.i("Geolocation", "Service initialized");
-    }
+//    @ReactMethod
+//    public void initGeolocation() {
+//        Activity activity = getCurrentActivity();
+//        SDKIris.INSTANCE.startGeofenceService(activity);
+//        Log.i("Geolocation", "Service initialized");
+//    }
 
     @ReactMethod
     public void sendTag(String key, String value) {
@@ -62,6 +66,15 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
         SDKIris.INSTANCE.createIrisId(document, email, phone, cpf);
         Log.i("Id", "generated successfully");
     }
+
+    @ReactMethod
+    public void create(ReadableMap user) throws JSONException {
+        JSONObject newUser = ReactNativeJson.convertMapToJson(user);
+        final String newUserData = newUser.toString();
+        SDKIris.INSTANCE.createUser(newUserData);
+        Log.i("BULK", "sended User");
+    }
+
     private void sendEvent(ReactContext reactContext,
                            String eventName,
                            @Nullable WritableMap params) {
