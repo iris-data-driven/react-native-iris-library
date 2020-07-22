@@ -279,6 +279,7 @@ captures/
 # IntelliJ
 *.iml
 android/.idea/
+android/.idea/workspace.xml
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/gradle.xml
