@@ -56,7 +56,7 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void sendTag(String key, String value) {
-        SDKIris.INSTANCE.sendTag(value, key);
+        SDKIris.INSTANCE.sendTag(key, value);
         Log.i("Tags", "sended successfully");
 
     }
