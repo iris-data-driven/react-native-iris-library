@@ -1,9 +1,11 @@
 package com.reactlibrary;
 
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.WritableArray;
+import com.facebook.react.bridge.WritableNativeArray;
+import com.google.gson.Gson;
 import com.somosiris.mobileandroidsdk.SDKIris;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
@@ -15,13 +17,14 @@ import com.facebook.react.bridge.Callback;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.Arguments;
+import com.somosiris.mobileandroidsdk.database.IrisNotification;
 
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Optional;
+import java.util.List;
 
 import javax.annotation.Nullable;
 
@@ -42,7 +45,7 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void initNotifications() {
-        Context context = getReactApplicationContext();
+        Context context = this.reactContext;
         SDKIris.INSTANCE.init(context);
         Log.i("Notification", "Service initialized");
     }
@@ -74,6 +77,41 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
         SDKIris.INSTANCE.createUser(newUserData);
         Log.i("BULK", "sended User");
     }
+
+    @ReactMethod
+    public WritableArray getNotificationList() throws JSONException {
+        List<IrisNotification> notificationList = SDKIris.INSTANCE.getAllIrisNotifications();
+        Gson gson = new Gson();
+        WritableArray notificationListRN = new WritableNativeArray();
+        for ( IrisNotification item : notificationList){
+            JSONObject jsonItem = new JSONObject(gson.toJson(item));
+            WritableMap wm = ReactNativeJson.convertJsonToMap(jsonItem);
+            notificationListRN.pushMap(wm);
+        }
+        return notificationListRN;
+    }
+
+    @ReactMethod
+    public void updateNotification(ReadableMap notification) throws JSONException {
+        Gson gson = new Gson();
+        JSONObject jsonNotification = ReactNativeJson.convertMapToJson(notification);
+        IrisNotification newNotification = gson.fromJson(String.valueOf(jsonNotification), IrisNotification.class);
+        SDKIris.INSTANCE.updateIrisNotification(newNotification);
+    }
+
+    @ReactMethod
+    public void deleteNotification(ReadableMap notification) throws JSONException {
+        Gson gson = new Gson();
+        JSONObject jsonNotification = ReactNativeJson.convertMapToJson(notification);
+        IrisNotification newNotification = gson.fromJson(String.valueOf(jsonNotification), IrisNotification.class);
+        SDKIris.INSTANCE.deleteIrisNotification(newNotification);
+    }
+
+    @ReactMethod
+    public void deleteAllNotifications(){
+        SDKIris.INSTANCE.deleteAllIrisNotifications();
+    }
+
 
     private void sendEvent(ReactContext reactContext,
                            String eventName,
