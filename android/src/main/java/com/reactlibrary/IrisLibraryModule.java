@@ -79,7 +79,7 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public WritableArray getNotificationList() throws JSONException {
+    public void getNotificationList(Callback callback) throws JSONException {
         List<IrisNotification> notificationList = SDKIris.INSTANCE.getAllIrisNotifications();
         Gson gson = new Gson();
         WritableArray notificationListRN = new WritableNativeArray();
@@ -88,7 +88,8 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
             WritableMap wm = ReactNativeJson.convertJsonToMap(jsonItem);
             notificationListRN.pushMap(wm);
         }
-        return notificationListRN;
+        Log.i("Notifications", "List");
+        callback.invoke(notificationListRN);
     }
 
     @ReactMethod
