@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import java.util.Iterator;
 
 public class ReactNativeJson {
-    private static WritableMap convertJsonToMap(JSONObject jsonObject) throws JSONException {
+    public static WritableMap convertJsonToMap(JSONObject jsonObject) throws JSONException {
         WritableMap map = new WritableNativeMap();
 
         Iterator<String> iterator = jsonObject.keys();
@@ -41,7 +41,7 @@ public class ReactNativeJson {
         return map;
     }
 
-    private static WritableArray convertJsonToArray(JSONArray jsonArray) throws JSONException {
+    public static WritableArray convertJsonToArray(JSONArray jsonArray) throws JSONException {
         WritableArray array = new WritableNativeArray();
 
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -94,7 +94,7 @@ public class ReactNativeJson {
         return object;
     }
 
-    private static JSONArray convertArrayToJson(ReadableArray readableArray) throws JSONException {
+    public static JSONArray convertArrayToJson(ReadableArray readableArray) throws JSONException {
         JSONArray array = new JSONArray();
         for (int i = 0; i < readableArray.size(); i++) {
             switch (readableArray.getType(i)) {
