@@ -23,11 +23,11 @@ import com.somosiris.mobileandroidsdk.database.IrisNotification;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Nullable;
-
 
 public class IrisLibraryModule extends ReactContextBaseJavaModule {
 
@@ -49,13 +49,6 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
         SDKIris.INSTANCE.init(context);
         Log.i("Notification", "Service initialized");
     }
-
-//    @ReactMethod
-//    public void initGeolocation() {
-//        Activity activity = getCurrentActivity();
-//        SDKIris.INSTANCE.startGeofenceService(activity);
-//        Log.i("Geolocation", "Service initialized");
-//    }
 
     @ReactMethod
     public void sendTag(String key, String value) {
@@ -81,6 +74,7 @@ public class IrisLibraryModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void getNotificationList(Callback callback) throws JSONException {
         List<IrisNotification> notificationList = SDKIris.INSTANCE.getAllIrisNotifications();
+        Collections.reverse(notificationList);
         Gson gson = new Gson();
         WritableArray notificationListRN = new WritableNativeArray();
         for ( IrisNotification item : notificationList){
