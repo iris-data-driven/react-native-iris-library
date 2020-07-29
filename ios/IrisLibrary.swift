@@ -48,10 +48,53 @@ class IrisLibrary: NSObject {
                 print("Cannot convert Dictionary to Data")
             }
     }
+   @objc
+    func getNotificationList(completion: ([NSDictionary]) -> Void) {
+        var arrayDict = [NSDictionary]()
+        let notificationList = IrisNotify.getNotifications()
+        for notification in notificationList {
+            var dict = [NSDictionary]()
+            dict["title"] = notification.title
+            dict["subtitle"] = notification.subtitle
+            dict["body"] = notification.body
+            dict["launchURL"] = notification.launchURL
+            dict["notificationOpened"] = notification.read
+            dict["imageURL"] = notification.att
+            dict["notificationID"] = notification.notificationID
+            arrayDict.append(dict)
+        }
+            completion(arrayDict)
+    }
+   @objc
+    func deleteAllNotifications() -> Void {
+        IrisNotify.deleteAllNotifications()
+    }
+   @objc
+    func updateNotification(_ notification: NSDictionary) -> Void {
+        let newNotification = toIrisNotification(notification)
+        IrisNotify.updateNotification(newNotification)
+    }
+   @objc
+    func deleteNotification(_ notification: NSDictionary) -> Void {
+        let newNotification = toIrisNotification(notification)
+        IrisNotify.deleteNotification(newNotification)
+    }
     
   @objc
   static func requiresMainQueueSetup() -> Bool {
     return false
   }
   
+    
+    func toIrisNotification(_ dict: NSDictionary) -> IrisNotification {
+        return IrisNotification(notificationID: dict["notificationID"],
+                                title: dict["title"],
+                                subtitle: dict["subtitle"],
+                                body: dict["body"],
+                                launchURL: dict["launchURL"],
+                                read: dict["notificationOpened"],
+                                rawPayload: ["id" : dict["imageURL"]])
+    }
 }
+
+
