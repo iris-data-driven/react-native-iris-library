@@ -49,7 +49,7 @@ class IrisLibrary: NSObject {
             }
     }
    @objc
-    func getNotificationList(completion: ([NSDictionary]) -> Void) {
+    func getNotificationList(callback: ([NSDictionary]) -> Void) {
         var arrayDict = [NSDictionary]()
         let notificationList = IrisNotify.getNotifications()
         for notification in notificationList {
