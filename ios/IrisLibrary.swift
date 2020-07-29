@@ -53,7 +53,7 @@ class IrisLibrary: NSObject {
         var arrayDict = [NSDictionary]()
         let notificationList = IrisNotify.getNotifications()
         for notification in notificationList {
-            var dict = [NSDictionary]()
+            let dict = NSMutableDictionary()
             dict["title"] = notification.title
             dict["subtitle"] = notification.subtitle
             dict["body"] = notification.body
@@ -63,7 +63,7 @@ class IrisLibrary: NSObject {
             dict["notificationID"] = notification.notificationID
             arrayDict.append(dict)
         }
-            completion(arrayDict)
+            callback(arrayDict)
     }
    @objc
     func deleteAllNotifications() -> Void {
@@ -87,14 +87,15 @@ class IrisLibrary: NSObject {
   
     
     func toIrisNotification(_ dict: NSDictionary) -> IrisNotification {
-        return IrisNotification(notificationID: dict["notificationID"],
-                                title: dict["title"],
-                                subtitle: dict["subtitle"],
-                                body: dict["body"],
-                                launchURL: dict["launchURL"],
-                                read: dict["notificationOpened"],
-                                rawPayload: ["id" : dict["imageURL"]])
+        return IrisNotification(notificationID: dict["notificationID"] as? String  ?? "",
+                                title: dict["title"] as? String ?? "",
+                                subtitle: dict["subtitle"] as? String ?? "",
+                                body: dict["body"] as? String ?? "",
+                                launchURL: dict["launchURL"] as? String ?? "",
+                                read: dict["notificationOpened"] as? Bool ?? true,
+                                rawPayload: ["id" : dict["imageURL"] as? String ?? ""])
     }
 }
 
 
+    
