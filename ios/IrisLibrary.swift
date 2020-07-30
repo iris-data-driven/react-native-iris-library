@@ -49,21 +49,26 @@ class IrisLibrary: NSObject {
             }
     }
    @objc
-    func getNotificationList(callback: ([NSDictionary]) -> Void) {
+    func getNotificationList(_ callback: RCTResponseSenderBlock) -> Void {
         var arrayDict = [NSDictionary]()
         let notificationList = IrisNotify.getNotifications()
-        for notification in notificationList {
-            let dict = NSMutableDictionary()
-            dict["title"] = notification.title
-            dict["subtitle"] = notification.subtitle
-            dict["body"] = notification.body
-            dict["launchURL"] = notification.launchURL
-            dict["notificationOpened"] = notification.read
-            dict["imageURL"] = notification.att
-            dict["notificationID"] = notification.notificationID
-            arrayDict.append(dict)
+        if notificationList != [] {
+            for notification in notificationList {
+                let dict = NSMutableDictionary()
+                dict["title"] = notification.title
+                dict["subtitle"] = notification.subtitle
+                dict["body"] = notification.body
+                dict["launchURL"] = notification.launchURL
+                dict["notificationOpened"] = notification.read
+                dict["imageURL"] = notification.att
+                dict["notificationID"] = notification.notificationID
+                arrayDict.append(dict)
+            }
+            callback([NSNull(), arrayDict])
+        } else {
+            print("No notifications to display")
+            return
         }
-            callback(arrayDict)
     }
    @objc
     func deleteAllNotifications() -> Void {
@@ -79,6 +84,7 @@ class IrisLibrary: NSObject {
         let newNotification = toIrisNotification(notification)
         IrisNotify.deleteNotification(newNotification)
     }
+    
     
   @objc
   static func requiresMainQueueSetup() -> Bool {
@@ -98,4 +104,3 @@ class IrisLibrary: NSObject {
 }
 
 
-    
