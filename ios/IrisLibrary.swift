@@ -64,9 +64,9 @@ class IrisLibrary: NSObject {
                 dict["notificationID"] = notification.notificationID
                 arrayDict.append(dict)
             }
-            callback([NSNull(), arrayDict])
+            callback([arrayDict])
         } else {
-            print("No notifications to display")
+            print("No notifications to return")
             return
         }
     }
