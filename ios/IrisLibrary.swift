@@ -39,7 +39,6 @@ class IrisLibrary: NSObject {
     }
   @objc
     func create(_ user: NSDictionary) -> Void {
-        IrisEnv.default.set(.homolog)
         let newUser = try? JSONSerialization.data(withJSONObject: user, options: .prettyPrinted)
         if let newUserData  = newUser {
             IrisNotify.create(user: newUserData)
