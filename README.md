@@ -10,7 +10,7 @@
 ### iOS integration
 Add to your podfile (in case you already had use of one of the frameworks, you don't have to add it)
 ```
-pod 'OneSignal', '~>2.12.0'
+pod 'OneSignal', '>=2.12.0'
 ```
 
 `$ cd ios & pod install`
@@ -89,26 +89,34 @@ Add notification configuration from native docs:
 if your integration with React Native, skip the Carthage configuration.
 - Android - https://iris-mobile-repo.s3.amazonaws.com/documentation/android.html
 
+Create a file with name IrisModule.js
+
 ```javascript
-import NativeModules from 'react';
+import { NativeModules } from 'react-native';
+module.exports = NativeModules.IrisLibrary;
+
+```
+
+```javascript
+import IrisModule from 'PATH_TO_FILE/IrisModule.js';
 
 // TODO: What to do with the module?
 Using inside RN code:
 
 //To init Notification Service
-NativeModules.IrisLibrary.initNotifications()
+IrisModule.initNotifications()
 
 //To send the tag id4all
-NativeModules.IrisLibrary.sendTag("KEY", "VALUE")
+IrisModule.sendTag("KEY", "VALUE")
 
 //To create a new User for CDP Database
-NativeModules.IrisLibrary.create(newUser)
+IrisModule.create(newUser)
 
 newUser has to be an Object type:
  - *At least 1* of keys (email, phone, document)  is required
  - Key *id_source* is required
  - If you send some *address*, *city* and *uf* are required 
-
+Object:
 {
     "name" : "John Bean",
     "gender" : "M",
@@ -134,10 +142,55 @@ newUser has to be an Object type:
     ]
 }
 
-More info at: https://bulk.homolog.api.4all.com/docs/#operation/insertUsers
+More info at: https://bulk.prod.api.4all.com/docs/#operation/insertUsers
 
 //In order to receive push notification, use:
-NativeModules.IrisLibrary.addCustomer(DOCUMENT_VALUE, PHONE_VALUE, MAIL_VALUE, "")
+IrisModule.addCustomer(DOCUMENT_VALUE, PHONE_VALUE, MAIL_VALUE, "")
 
 
 ```
+
+- Notification Center:
+We have a Notification Center handler. When the device receives a Push Notification, the notification data is stored locally in the device and it's acessible within this methods below:
+
+- To get the notification list (if exists):
+```javascript
+IrisModule.getNotificationList( notificationList => {
+               //handle array of notification objects
+            });
+```
+
+- To delete all notifications:
+```javascript
+IrisModule.deleteAllNotifications();
+```
+
+- To update one notification:
+```javascript
+IrisModule.updateNotification(notificationObject);
+```
+
+- To delete one notificaiton:
+```javascript
+IrisModule.deleteNotification(notificationObject);
+```
+
+Alternatively, we have a component *NotificationCenter*, it consists in a View component with close and cleanAll button, and a list of notifications items, you can use it, edit it ou build your own component. Call it from a modal View:
+
+```javascript
+<View>
+    <Modal 
+    animationType="slide"
+    transparent={true}
+    visible={notificationModalVisible}
+    onRequestClose={() => { 
+        this.setNotificationModalVisible(false);
+    }}>
+        <View style={styles.modal}>
+            <NotificationCenter onCreateClicked={this.setNotificationModalVisible}/>
+        </View>
+    </Modal>
+</View>
+```
+
+If you can't call the component from the module, just copy da code in your project.

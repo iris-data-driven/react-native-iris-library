@@ -1,7 +1,7 @@
 {
   "name": "react-native-iris-library",
   "title": "React Native Iris Library",
-  "version": "1.2.2",
+  "version": "1.4.0",
   "description": "React Native module for SDK Iris",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "data-driven",
     "iris",
     "notification",
-    "geolocation"
+    "notification center"
   ],
   "author": {
     "name": "Thiago R. C. Brandt",

@@ -39,7 +39,6 @@ class IrisLibrary: NSObject {
     }
   @objc
     func create(_ user: NSDictionary) -> Void {
-        IrisEnv.default.set(.homolog)
         let newUser = try? JSONSerialization.data(withJSONObject: user, options: .prettyPrinted)
         if let newUserData  = newUser {
             IrisNotify.create(user: newUserData)
@@ -48,10 +47,59 @@ class IrisLibrary: NSObject {
                 print("Cannot convert Dictionary to Data")
             }
     }
+   @objc
+    func getNotificationList(_ callback: RCTResponseSenderBlock) -> Void {
+        var arrayDict = [NSDictionary]()
+        let notificationList = IrisNotify.getNotifications()
+        if notificationList != [] {
+            for notification in notificationList {
+                let dict = NSMutableDictionary()
+                dict["title"] = notification.title
+                dict["subtitle"] = notification.subtitle
+                dict["body"] = notification.body
+                dict["launchURL"] = notification.launchURL
+                dict["notificationOpened"] = notification.read
+                dict["imageURL"] = notification.att
+                dict["notificationID"] = notification.notificationID
+                arrayDict.append(dict)
+            }
+            callback([arrayDict])
+        } else {
+            print("No notifications to return")
+            return
+        }
+    }
+   @objc
+    func deleteAllNotifications() -> Void {
+        IrisNotify.deleteAllNotifications()
+    }
+   @objc
+    func updateNotification(_ notification: NSDictionary) -> Void {
+        let newNotification = toIrisNotification(notification)
+        IrisNotify.updateNotification(newNotification)
+    }
+   @objc
+    func deleteNotification(_ notification: NSDictionary) -> Void {
+        let newNotification = toIrisNotification(notification)
+        IrisNotify.deleteNotification(newNotification)
+    }
+    
     
   @objc
   static func requiresMainQueueSetup() -> Bool {
     return false
   }
   
+    
+    func toIrisNotification(_ dict: NSDictionary) -> IrisNotification {
+        return IrisNotification(notificationID: dict["notificationID"] as? String  ?? "",
+                                title: dict["title"] as? String ?? "",
+                                subtitle: dict["subtitle"] as? String ?? "",
+                                body: dict["body"] as? String ?? "",
+                                launchURL: dict["launchURL"] as? String ?? "",
+                                read: dict["notificationOpened"] as? Bool ?? true,
+                                rawPayload: ["id" : dict["imageURL"] as? String ?? ""])
+    }
 }
+
+
