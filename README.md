@@ -174,3 +174,23 @@ IrisModule.updateNotification(notificationObject);
 ```javascript
 IrisModule.deleteNotification(notificationObject);
 ```
+
+Alternatively, we have a component *NotificationCenter*, it consists in a View component with close and cleanAll button, and a list of notifications items, you can use it, edit it ou build your own component. Call it from a modal View:
+
+```javascript
+<View>
+    <Modal 
+    animationType="slide"
+    transparent={true}
+    visible={notificationModalVisible}
+    onRequestClose={() => { 
+        this.setNotificationModalVisible(false);
+    }}>
+        <View style={styles.modal}>
+            <NotificationCenter onCreateClicked={this.setNotificationModalVisible}/>
+        </View>
+    </Modal>
+</View>
+```
+
+If you can't call the component from the module, just copy da code in your project.
