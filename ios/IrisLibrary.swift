@@ -6,21 +6,43 @@
 //  Copyright © 2020 Facebook. All rights reserved.
 //
 import IrisSDKStatic
+import OneSignal
 
 @objc(IrisLibrary)
 class IrisLibrary: NSObject {
+//  let event = IrisLibraryEvent()
+  
+//  func notificationOpened(_ payload: OSNotificationOpenedResult) {
+//      if let notification = payload.stringify() {
+//          guard let json = jsonObjectWithString(notification) else { return }
+//        self.event.irisEventReceived("Iris-remoteNotificationOpened", body: json as? [AnyHashable : Any])
+//      }
+//
+//  }
+//  func notificationReceived(_ payload: OSNotification) {
+//      if let notification = payload.stringify() {
+//          guard let json = jsonObjectWithString(notification) else { return }
+//        self.event.irisEventReceived("Iris-remoteNotificationReceived", body: json as? [AnyHashable : Any])
+//      }
+//  }
   @objc
+  func initIris(){
+      initNotifications()
+  }
   func initNotifications() -> Void {
     DispatchQueue.main.async {
-        let launchOptions: [AnyHashable: Any] = [:]
-        let notify = IrisNotify()
-        notify.delegate = UIApplication.shared.delegate as? PushDeepLinkingDelegate
-        notify.initWithCallbacks(launchOptions)
-        IrisNotify.promptForPushNotifications { accepted in
-            print("User accepted notifications: \(accepted)")
-          }
-        print("Notification Service initialized")
-    }
+      let launchOptions: [AnyHashable: Any] = [:]
+      let notify = IrisNotify()
+//      notify.openedDelegate = UIApplication.shared.delegate as? IrisNotificationOpenedDelegate
+//      notify.receivedDelegate = UIApplication.shared.delegate as? IrisNotificationReceivedDelegate
+//      notify.delegate = UIApplication.shared.delegate as? PushDeepLinkingDelegate
+      notify.initWithCallbacks(launchOptions)
+      IrisNotify.promptForPushNotifications { accepted in
+          print("User accepted notifications: \(accepted)")
+      }
+      print("Notification Service initialized")
+//      self.event.startObserving()
+      }
   }
   
   @objc
@@ -99,6 +121,16 @@ class IrisLibrary: NSObject {
                                 launchURL: dict["launchURL"] as? String ?? "",
                                 read: dict["notificationOpened"] as? Bool ?? true,
                                 rawPayload: ["id" : dict["imageURL"] as? String ?? ""])
+    }
+
+  func jsonObjectWithString(_ jsonString: String) -> NSDictionary? {
+        
+        if let data = jsonString.data(using: .utf8) {
+            return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
+        } else {
+            print("Error parsing string to json")
+            return nil
+        }
     }
 }
 

@@ -8,10 +8,12 @@
 
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
+//#import <IrisSDKStatic/IrisSDKStatic.h>
 
 
-@interface IrisLibraryEvent : RCTEventEmitter <RCTBridgeModule>
+@interface IrisLibraryEvent : RCTEventEmitter <RCTBridgeModule>//, IrisNotificationOpenedDelegate, IrisNotificationReceivedDelegate>
 
-- (void)irisEventReceived:(NSDictionary *)dictionary;
+- (void)irisEventReceived:(NSString *)eventName body:(NSDictionary *)body;
 
 @end
+
