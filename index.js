@@ -4,6 +4,7 @@ import { NativeModules, NativeEventEmitter, Platform } from 'react-native';
 import invariant from 'invariant';
 
 const RNIrisLibrary = NativeModules.IrisLibrary;
+const eventIris = Platform.OS === 'android' ? RNIrisLibrary : NativeModules.IrisEventEmitter ;
 
 const IRIS_REMOTE_NOTIFICATION_OPENED = 'Iris-remoteNotificationOpened';
 const IRIS_REMOTE_NOTIFICATION_RECEIVED = 'Iris-remoteNotificationReceived';
@@ -26,17 +27,8 @@ var _eventTypeHandler = new Map();
 var _notificationCache = new Map();
 var _listeners = [];
 
-// module.exports = {
-//     // get IrisLibrary() {
-//     //     return IrisLibrary;
-//     // },
-//     // get NotificationCenter(){
-//     //     return NotificationCenter;
-//     // }
-// }
-
 if (RNIrisLibrary != null) {
-    irisEventEmitter = new NativeEventEmitter(RNIrisLibrary);
+    irisEventEmitter = new NativeEventEmitter(eventIris);
 
     for(var i = 0; i < _eventBroadcastNames.length; i++) {
         var eventBroadcastName = _eventBroadcastNames[i];
@@ -113,6 +105,7 @@ export default class IrisLibrary {
     static addEventListener(type, handler) {
         if (!checkIfInitialized()) return;
         console.log("EVENT: ", type, "FUNCTION: ", handler)
+
         invariant(
             type === NOTIFICATION_RECEIVED_EVENT ||
             type === NOTIFICATION_OPENED_EVENT,
@@ -171,7 +164,7 @@ export default class IrisLibrary {
         RNIrisLibrary.sendTag(key, value);
     }
 
-    static initIris() {
+    static init() {
         if (!checkIfInitialized()) return;
         RNIrisLibrary.initIris();
     }
