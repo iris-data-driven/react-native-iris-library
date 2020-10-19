@@ -1,19 +1,36 @@
 # react-native-iris-library
+Working with Xcode 11.7 and Android Studio 4.0.1
 
-## Getting started
+[![GitHub Release](https://img.shields.io/github/release/tterb/PlayMusic.svg?style=flat)]()
+
+
+### 0. Before installation
+
+Configure the irisConfig.json (android) and Iris.plist (iOS) files with the service keys provided by the Iris CS Team
+Add notification configuration from native docs:
+
+- iOS     - https://iris-mobile-repo.s3.amazonaws.com/documentation/ios.html
+ALERT: If you're integration with React Native, skip the Carthage configuration.
+
+- Android - https://iris-mobile-repo.s3.amazonaws.com/documentation/android.html
+
+
+## 1. Getting started
 
 `$ yarn add react-native-iris-library`
 
-### Mostly automatic installation
-
+### 2. Mostly automatic installation
+### 3. If you use autolink, skip to 5th step
 `$ react-native link react-native-iris-library`
-### iOS integration
+
+### 4. iOS integration 
 Add to your podfile (in case you already had use of one of the frameworks, you don't have to add it)
 ```
-pod 'OneSignal', '>=2.12.0'
+pod 'OneSignal'
 ```
 
 `$ cd ios & pod install`
+### 5. Swift integration
 Add a .swift empty file (Xcode > File > New > File > .swift) and click "Create Bridging Header" from Xcode popup
 Build and run.
 
@@ -22,7 +39,7 @@ Knowed issues:
 * Error *duplicated interface* => Pods > Development Pods > IrisLibrary > delete Pods folder inside IrisLibrary module.
 * Error *Unable to resolve module scheduler* => clean cache from Metro Bundler using yarn.
 
-### Android integration
+### 1. Android integration
 Open the build.gradle file from app
 ```
 apply plugin: 'kotlin-android'
@@ -83,34 +100,20 @@ allprojects {
 ```
 
 
-## Usage
-Add notification configuration from native docs:
-- iOS     - https://iris-mobile-repo.s3.amazonaws.com/documentation/ios.html
-if your integration with React Native, skip the Carthage configuration.
-- Android - https://iris-mobile-repo.s3.amazonaws.com/documentation/android.html
-
-Create a file with name IrisModule.js
-
 ```javascript
-import { NativeModules } from 'react-native';
-module.exports = NativeModules.IrisLibrary;
-
-```
-
-```javascript
-import IrisModule from 'PATH_TO_FILE/IrisModule.js';
+import IrisLibrary from 'react-native-iris-library';
 
 // TODO: What to do with the module?
 Using inside RN code:
 
-//To init Notification Service
-IrisModule.initNotifications()
+//To init Notification Service inside componentDidMount
+IrisLibrary.init();
 
 //To send the tag id4all
-IrisModule.sendTag("KEY", "VALUE")
+IrisLibrary.sendTag("KEY", "VALUE")
 
 //To create a new User for CDP Database
-IrisModule.create(newUser)
+IrisLibrary.create(newUser)
 
 newUser has to be an Object type:
  - *At least 1* of keys (email, phone, document)  is required
@@ -142,37 +145,58 @@ Object:
     ]
 }
 
-More info at: https://bulk.prod.api.4all.com/docs/#operation/insertUsers
+More info at: https://bulk.prod.api.somosiris.com/docs/#operation/insertUsers
 
 //In order to receive push notification, use:
-IrisModule.addCustomer(DOCUMENT_VALUE, PHONE_VALUE, MAIL_VALUE, "")
+IrisLibrary.addCustomer(DOCUMENT_VALUE, PHONE_VALUE, MAIL_VALUE, "")
 
 
 ```
+
+- Deep linking:
+You can use the Additional Data json provided with the notification payload, to deep link the opened notification to some view in your app.
+
+```javascript
+  componentDidMount = () => {
+    IrisLibrary.init();
+    IrisLibrary.addEventListener('opened', this.onOpened);
+
+  }
+  componetnWillUnmount = () => {
+    IrisLibrary.removeEventListener('opened', this.onOpened);
+  }
+
+  onOpened = (openResult) => {
+    console.log('Deep Link', openResult.notification.payload.additionalData);
+    //Use the additionalData to redirect the user to some specific view in the app
+  }
+
+```
+
 
 - Notification Center:
 We have a Notification Center handler. When the device receives a Push Notification, the notification data is stored locally in the device and it's acessible within this methods below:
 
 - To get the notification list (if exists):
 ```javascript
-IrisModule.getNotificationList( notificationList => {
+IrisLibrary.getNotificationList( notificationList => {
                //handle array of notification objects
             });
 ```
 
 - To delete all notifications:
 ```javascript
-IrisModule.deleteAllNotifications();
+IrisLibrary.deleteAllNotifications();
 ```
 
 - To update one notification:
 ```javascript
-IrisModule.updateNotification(notificationObject);
+IrisLibrary.updateNotification(notificationObject);
 ```
 
 - To delete one notificaiton:
 ```javascript
-IrisModule.deleteNotification(notificationObject);
+IrisLibrary.deleteNotification(notificationObject);
 ```
 
 Alternatively, we have a component *NotificationCenter*, it consists in a View component with close and cleanAll button, and a list of notifications items, you can use it, edit it ou build your own component. Call it from a modal View:
@@ -194,3 +218,5 @@ Alternatively, we have a component *NotificationCenter*, it consists in a View c
 ```
 
 If you can't call the component from the module, just copy da code in your project.
+
+If something get wrong, please open an issue or contact 
