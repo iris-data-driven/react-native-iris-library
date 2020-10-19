@@ -1,9 +1,6 @@
 # react-native-iris-library
 Working with Xcode 11.7 and Android Studio 4.0.1
 
-[![GitHub Release](https://img.shields.io/github/release/tterb/PlayMusic.svg?style=flat)]()
-
-
 ### 0. Before installation
 
 Configure the irisConfig.json (android) and Iris.plist (iOS) files with the service keys provided by the Iris CS Team
