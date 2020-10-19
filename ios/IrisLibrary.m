@@ -3,8 +3,7 @@
 
 
 @interface RCT_EXTERN_MODULE(IrisLibrary, NSObject)
-RCT_EXTERN_METHOD(initNotifications)
-RCT_EXTERN_METHOD(initGeolocation)
+RCT_EXTERN_METHOD(initIris)
 RCT_EXTERN_METHOD(sendTag:(NSString *)key value:(NSString *)value)
 RCT_EXTERN_METHOD(setHomolog)
 RCT_EXTERN_METHOD(addCustomer:(nullable NSString *)phone cpf:(nullable NSString *)cpf email:(nullable NSString *)email source:(nullable NSString *)source)
@@ -13,48 +12,13 @@ RCT_EXTERN_METHOD(deleteAllNotifications)
 RCT_EXTERN_METHOD(updateNotification:(NSDictionary *)notification)
 RCT_EXTERN_METHOD(deleteNotification:(NSDictionary *)notification)
 RCT_EXTERN_METHOD(getNotificationList:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(initNotificationOpenedHandlerParams) {
+    // Not implemented in iOS
+}
 @end
 
-@implementation IrisLibraryEvent
+@interface RCT_EXTERN_MODULE(IrisEventEmitter, RCTEventEmitter)
 
-RCT_EXPORT_MODULE();
-
-+ (id)allocWithZone:(NSZone *)zone {
-    static IrisLibraryEvent *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [super allocWithZone:zone];
-    });
-    return sharedInstance;
-}
-
-- (NSArray<NSString *> *)supportedEvents
-{
-  return @[@"DeepLinkingReceived"];
-}
-
-- (void)irisEventReceived:(NSDictionary *)dictionary
-{
-  [self sendEventWithName:@"DeepLinkingReceived" body:dictionary];
-}
+RCT_EXTERN_METHOD(supportedEvents)
 
 @end
-
-
-/*
- AppDelegate.h
- 
- #import <IrisSDKStatic/IrisSDKStatic-Swift.h>
-
- @interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate, PushDeepLinkingDelegate>
- 
- 
- AppDelegate.m
- #import <IrisLibrary.h>
- 
- - (void)send:(NSDictionary * _Nonnull)dict {
- IrisLibraryEvent *notification =  [IrisLibraryEvent allocWithZone:nil];
- [notification irisEventReceived:dict];
- }
- */
- 
